@@ -28,7 +28,7 @@ const ChatBot = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch("https://devx-backend.onrender.com", {
+      const response = await fetch("https://devx-backend.onrender.com/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: userMessage }),
