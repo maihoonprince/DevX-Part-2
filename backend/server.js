@@ -7,16 +7,22 @@ dotenv.config();
 
 const app = express();
 
-// CORS Configuration (Allow frontend domains)
+// Dynamically set CORS for different environments
 const allowedOrigins = [
-  "http://localhost:8080", // Local Frontend (Vite)
-  "https://yourdevx.netlify.app/" // Deployed Frontend (Netlify)
+  "http://localhost:5173", // Local Frontend (Vite)
+  "https://yourdevx.netlify.app" // Deployed Frontend (Netlify)
 ];
 
 app.use(
   cors({
-    origin: allowedOrigins,
-    methods: "GET,POST,PUT,DELETE",
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    methods: "GET, POST, PUT, DELETE",
     credentials: true,
   })
 );
@@ -28,7 +34,13 @@ app.use("/api", chatRoutes);
 
 // Root Route for Testing Backend Deployment
 app.get("/", (req, res) => {
-  res.send("Backend is running successfully!");
+  res.json({ message: "Backend is running successfully!" });
+});
+
+// Global Error Handling
+app.use((err, req, res, next) => {
+  console.error("Error:", err.message);
+  res.status(500).json({ error: "Internal Server Error" });
 });
 
 // Port Configuration
