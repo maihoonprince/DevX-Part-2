@@ -1,20 +1,39 @@
-import express from 'express';
-import cors from 'cors';
-import dotenv from 'dotenv';
-import chatRoutes from './routes/chatBot.js';
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import chatRoutes from "./routes/chatBot.js";
 
 dotenv.config();
 
 const app = express();
 
-app.use(cors());
+// CORS Configuration (Allow frontend domains)
+const allowedOrigins = [
+  "http://localhost:8080", // Local Frontend (Vite)
+  "https://your-frontend-name.netlify.app" // Deployed Frontend (Netlify)
+];
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
-// Chat API Route
-app.use('/api', chatRoutes);
+// API Routes
+app.use("/api", chatRoutes);
 
+// Root Route for Testing Backend Deployment
+app.get("/", (req, res) => {
+  res.send("Backend is running successfully!");
+});
+
+// Port Configuration
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`🚀 Server is running on port ${PORT}`);
 });
