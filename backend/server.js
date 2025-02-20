@@ -10,7 +10,7 @@ const app = express();
 // CORS Configuration (Allow frontend domains)
 const allowedOrigins = [
   "http://localhost:8080", // Local Frontend (Vite)
-  "https://your-frontend-name.netlify.app" // Deployed Frontend (Netlify)
+  "https://yourdevx.netlify.app/" // Deployed Frontend (Netlify)
 ];
 
 app.use(
