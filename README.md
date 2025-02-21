@@ -89,5 +89,5 @@ Ensure you have installed:
 
 ### **1️⃣ Clone the Repository**  
 ```bash
-git clone https://github.com/your-username/devx.git
+git clone [https://github.com/maihoonprince/DevX.git]
 cd devx
