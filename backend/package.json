@@ -20,7 +20,12 @@
   "engines": {
     "node": ">=16"
   },
-  "keywords": ["express", "backend", "chatbot", "IDE"],
+  "keywords": [
+    "express",
+    "backend",
+    "chatbot",
+    "IDE"
+  ],
   "author": "Your Name",
   "license": "ISC"
 }
