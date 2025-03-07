@@ -10,6 +10,7 @@ const app = express();
 // Dynamically set CORS for different environments
 const allowedOrigins = [
   "http://localhost:5173", // Local Frontend (Vite)
+  "http://localhost:8081",
   "https://yourdevx.netlify.app" // Deployed Frontend (Netlify)
 ];
 
