@@ -11,6 +11,7 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:5173", // Local Vite frontend
   "http://localhost:8080", // Local frontend (alternative port)
+  "http://localhost:8082",
   "https://yourdevx.netlify.app" // Deployed frontend
 ];
 

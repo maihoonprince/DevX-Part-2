@@ -17,6 +17,7 @@ import ChatBot from "./components/ChatBot";
 import Community from "./pages/Community";
 import Developers from "./pages/Developers";
 import DSATheory from "./pages/DSATheory";
+import ChatBotPage from "./pages/ChatBotPage";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,7 @@ const App = () => (
           <Route path="/community" element={<Community />} />
           <Route path="/developers" element={<Developers />} />
           <Route path="/dsa-theory" element={<DSATheory />} />
+          <Route path="/chatbot" element={<ChatBotPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <ChatBot />
