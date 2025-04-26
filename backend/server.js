@@ -13,7 +13,8 @@ const allowedOrigins = [
   "http://localhost:8080", // Local frontend (alternative port)
   "http://localhost:8082",
   "https://yourdevx.netlify.app", // Deployed frontend
-  "https://devvx.netlify.app"
+  "https://devvx.netlify.app",
+  "https://devx-2g9k.onrender.com"
 ];
 
 // Configure CORS properly
